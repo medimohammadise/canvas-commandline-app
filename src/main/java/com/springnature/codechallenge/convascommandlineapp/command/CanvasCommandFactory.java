@@ -1,7 +1,10 @@
 package com.springnature.codechallenge.convascommandlineapp.command;
 
-import com.springnature.codechallenge.convascommandlineapp.commandimpl.ConvasCommandImpl;
+import com.springnature.codechallenge.convascommandlineapp.commandimpl.CreateConvasImpl;
+import com.springnature.codechallenge.convascommandlineapp.commandimpl.QuiteConvasImpl;
 import com.springnature.codechallenge.convascommandlineapp.constant.Constants;
+import com.springnature.codechallenge.convascommandlineapp.constant.ErrorCodes;
+import com.springnature.codechallenge.convascommandlineapp.exception.CanvasCommandLineAppException;
 
 import java.util.Arrays;
 
@@ -11,7 +14,7 @@ import java.util.Arrays;
  */
 public class CanvasCommandFactory {
 
-    public static Command create(String commandLine) {
+    public static Command create(String commandLine) throws CanvasCommandLineAppException {
         String[] commandLineElements = commandLine.split(Constants.SEPARATOR);
         String command = commandLineElements[0];
         String[] commandArguments = null;
@@ -21,7 +24,7 @@ public class CanvasCommandFactory {
         //TODO validate commandArguments
         switch (command) {
             case Constants.COMMAND_CREATE_NEW_CONVAS:
-                //TODO Create new Convas Command
+                return  new CreateConvasImpl(commandArguments);
             case Constants.COMMAND_DRAW_NEW_LINE:
                 //TODO Draw new line
             case Constants.COMMAND_DRAW_NEW_RECTANGLE:
@@ -29,8 +32,9 @@ public class CanvasCommandFactory {
             case Constants.COMMAND_BUCKET_FILL:
                 //TODO backet fill
             case Constants.COMMAND_QUIT:
-                //Quit
+                return new QuiteConvasImpl();
         }
-        return new ConvasCommandImpl();
+        throw new CanvasCommandLineAppException(ErrorCodes.UNSUPPORTED_OR_WRONG_COMMAND_LINE);
+       // return null;
     }
 }

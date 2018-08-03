@@ -2,7 +2,13 @@ package com.springnature.codechallenge.convascommandlineapp.command;
 
 
 
+import com.springnature.codechallenge.convascommandlineapp.canvas.Canvas;
+import com.springnature.codechallenge.convascommandlineapp.canvasimpl.CanvasImpl;
+import com.springnature.codechallenge.convascommandlineapp.commandimpl.CreateConvasImpl;
+import com.springnature.codechallenge.convascommandlineapp.commandimpl.QuiteConvasImpl;
 import com.springnature.codechallenge.convascommandlineapp.constant.Constants;
+import com.springnature.codechallenge.convascommandlineapp.constant.ErrorCodes;
+import com.springnature.codechallenge.convascommandlineapp.exception.CanvasCommandLineAppException;
 
 import java.util.Scanner;
 
@@ -14,6 +20,7 @@ public class CommandLineConsoleCanvas {
 
 
     public void run() {
+        Canvas canvas=null;
         String commandLine;
         Scanner scanIn = new Scanner(System.in);
         // Start reading for drawing commands until quit command
@@ -23,9 +30,18 @@ public class CommandLineConsoleCanvas {
             commandLine = scanIn.nextLine();
             try {
                 command = CanvasCommandFactory.create(commandLine);
-                //TODO process command based on command type, first command should be C (Create Convas)
-            } catch (Exception exception) {
-                System.out.println(Constants.ERROR_WRONG_COMMAND);
+                if (!(command instanceof QuiteConvasImpl))
+                {
+                    if (canvas == null && !(command instanceof CreateConvasImpl))
+                        throw new CanvasCommandLineAppException(ErrorCodes.THERE_IS_NO_CANVAS);
+                    else if (command instanceof CreateConvasImpl)
+                        canvas = new CanvasImpl((CreateConvasImpl) command);
+                    else
+                        canvas.addCommandToConvasCommandList(command);
+                }
+            } catch (CanvasCommandLineAppException exception) {
+
+                System.out.println(exception.getMessage());
             }
         } while (
             !Constants.COMMAND_QUIT.equals(commandLine)
