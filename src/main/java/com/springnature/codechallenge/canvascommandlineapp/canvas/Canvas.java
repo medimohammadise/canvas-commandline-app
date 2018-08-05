@@ -1,9 +1,11 @@
-package com.springnature.codechallenge.convascommandlineapp.canvas;
+package com.springnature.codechallenge.canvascommandlineapp.canvas;
 
-import com.springnature.codechallenge.convascommandlineapp.command.Command;
+import com.springnature.codechallenge.canvascommandlineapp.command.Command;
 
 import java.util.List;
-
+/*
+   We are relying on Canvas interface based on SOLID principle
+ */
 public interface Canvas {
     void display();
     void addCommandToConvasCommandList(Command command);

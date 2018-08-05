@@ -1,14 +1,16 @@
-package com.springnature.codechallenge.convascommandlineapp.commandimpl;
+package com.springnature.codechallenge.canvascommandlineapp.commandimpl;
 
-import com.springnature.codechallenge.convascommandlineapp.constant.Constants;
-import com.springnature.codechallenge.convascommandlineapp.constant.ErrorCodes;
-import com.springnature.codechallenge.convascommandlineapp.exception.CanvasCommandLineAppException;
-
-public class CreateConvasImpl extends ConvasCommandImpl{
+import com.springnature.codechallenge.canvascommandlineapp.constant.Constants;
+import com.springnature.codechallenge.canvascommandlineapp.constant.ErrorCodes;
+import com.springnature.codechallenge.canvascommandlineapp.exception.CanvasCommandLineAppException;
+/*
+   This class validates and create command after Create Canvas (C) command
+ */
+public class CreateCanvasImpl extends ConvasCommandImpl{
     private int width;
     private int height;
 
-    public CreateConvasImpl(String[] commandArguments) throws CanvasCommandLineAppException {
+    public CreateCanvasImpl(String[] commandArguments) throws CanvasCommandLineAppException {
         //pass command name to supper class
         super(Constants.COMMAND_CREATE_NEW_CONVAS);
 

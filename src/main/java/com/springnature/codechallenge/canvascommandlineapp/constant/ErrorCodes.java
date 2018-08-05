@@ -1,5 +1,7 @@
-package com.springnature.codechallenge.convascommandlineapp.constant;
-
+package com.springnature.codechallenge.canvascommandlineapp.constant;
+/*
+   Keeping all error codes for the system
+ */
 public enum ErrorCodes {
     ARGUMENTS_NOT_ENOUGH(1,"Arguments for command is not enough!"),
     UNSUPPORTED_OR_WRONG_COMMAND_LINE(2,"Command line is wrong or unsupported!"),

@@ -1,6 +1,6 @@
-package com.springnature.codechallenge.convascommandlineapp;
+package com.springnature.codechallenge.canvascommandlineapp;
 
-import com.springnature.codechallenge.convascommandlineapp.command.CommandLineConsoleCanvas;
+import com.springnature.codechallenge.canvascommandlineapp.command.CommandLineConsoleCanvas;
 
 public class Main {
 
