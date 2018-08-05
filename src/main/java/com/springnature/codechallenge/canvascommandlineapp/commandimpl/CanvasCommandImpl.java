@@ -4,10 +4,10 @@ import com.springnature.codechallenge.canvascommandlineapp.command.Command;
 /**
  * This class is the parent concrete class for all other command classes
  */
-public class ConvasCommandImpl implements Command {
+public class CanvasCommandImpl implements Command {
     private String commandName;
 
-    public ConvasCommandImpl(String commandName){
+    public CanvasCommandImpl(String commandName){
         this.commandName=commandName;
     }
 

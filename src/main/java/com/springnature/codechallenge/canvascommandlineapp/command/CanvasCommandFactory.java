@@ -9,7 +9,7 @@ import com.springnature.codechallenge.canvascommandlineapp.exception.CanvasComma
 import java.util.Arrays;
 
 /**
- * CanvasCommandFactory process commandLine argument and create related concrete class (ConvasCommandImpl) based on the the commandName and the arguments
+ * CanvasCommandFactory process commandLine argument and create related concrete class (CanvasCommandImpl) based on the the commandName and the arguments
  *
  */
 public class CanvasCommandFactory {

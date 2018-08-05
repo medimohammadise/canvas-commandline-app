@@ -10,5 +10,7 @@ public class Constants {
     public static final String COMMAND_QUIT="Q";
     public static final String SEPARATOR =" " ;
     public static final String PRMPOT_COMMAND = "Enter Command: ";
-    public static final String CHAR_DASH="-";
+    public static final char CHAR_DASH='-';
+    public static final char CHAR_PIP='|';
+    public static final char CHAR_SPACE=' ';
 }

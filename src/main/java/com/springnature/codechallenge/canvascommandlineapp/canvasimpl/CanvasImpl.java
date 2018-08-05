@@ -8,11 +8,21 @@ import com.springnature.codechallenge.canvascommandlineapp.constant.Constants;
 import java.util.ArrayList;
 import java.util.List;
 /*
- This class is the concrete class for Convas
+ This class is the concrete class for Canvas
  */
 public class CanvasImpl implements Canvas {
     private List<Command> commandList= new ArrayList<>();;
     private char[][] elements;
+
+    @Override
+    public int getWidth() {
+        return width;
+    }
+
+    @Override
+    public int getHeight() {
+        return height;
+    }
 
     private int width;
 
@@ -21,29 +31,25 @@ public class CanvasImpl implements Canvas {
     public CanvasImpl(CreateCanvasImpl createConvas){
         this.width=createConvas.getWidth();
         this.height=createConvas.getHeight();
-        this.addCommandToConvasCommandList(createConvas);
         this.initElements();
+        this.addCommandToConvasCommandList(createConvas);
+
     }
 
     private void initElements() {
-        elements= new char[height][width];
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                elements[i][j] = ' ';
+        elements= new char[width+1][height+1];
+        for (int x = 0; x <= width; x++) {
+            for (int y = 0; y <= height; y++) {
+                //set  canvas borders
+                if (y==0 || y==height )
+                    elements[x][y] = Constants.CHAR_DASH;
+                else
+                if( x==0 || x==width )
+                    elements[x][y] = Constants.CHAR_PIP;
+                else
+                elements[x][y] = Constants.CHAR_SPACE;
             }
         }
-    }
-
-    @Override
-    public void display() {
-      this.displayHorizontalBorder();
-
-    }
-    private void displayHorizontalBorder() {
-        for (int i = 0; i < this.width+ 2; i++) {
-            System.out.print(Constants.CHAR_DASH);
-        }
-        printNewLine();
     }
 
     private void printNewLine() {
@@ -52,9 +58,22 @@ public class CanvasImpl implements Canvas {
 
 
     @Override
+    public void display() {
+        for (int y = 0; y <= height ; y++) {
+            for (int x = 0; x <=width ; x++) {
+                System.out.print(getElement(x, y));
+            }
+            printNewLine();
+        }
+    }
+
+    @Override
     public void addCommandToConvasCommandList(Command command) {
         commandList.add(command);
+        //new command is just affecting in canvas by draw method we do not know what is that affect? (separation of concerns)
         command.draw();
+        //the canvas just blindly rendering it'sstate
+        this.display();
     }
 
     @Override

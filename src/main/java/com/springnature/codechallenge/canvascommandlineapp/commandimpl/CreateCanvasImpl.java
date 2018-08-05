@@ -6,7 +6,7 @@ import com.springnature.codechallenge.canvascommandlineapp.exception.CanvasComma
 /*
    This class validates and create command after Create Canvas (C) command
  */
-public class CreateCanvasImpl extends ConvasCommandImpl{
+public class CreateCanvasImpl extends CanvasCommandImpl {
     private int width;
     private int height;
 
