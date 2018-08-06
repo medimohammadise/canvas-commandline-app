@@ -53,5 +53,16 @@ public class CommandFactoryTest {
         String commandLine = "R 10 1 a b";
         CanvasCommandFactory.create(commandLine);
     }
-
+    @Test
+    public void createShouldCreatefillBucketCommand() throws CanvasCommandLineAppException {
+        String commandLine = "B 10 3 o";
+        Command command = CanvasCommandFactory.create(commandLine);
+        assertEquals(Constants.COMMAND_BUCKET_FILL, command.getName());
+    }
+    @Test
+    public void createShouldCreateQuiteCommand() throws CanvasCommandLineAppException {
+        String commandLine = "Q";
+        Command command = CanvasCommandFactory.create(commandLine);
+        assertEquals(Constants.COMMAND_QUIT, command.getName());
+    }
 }
