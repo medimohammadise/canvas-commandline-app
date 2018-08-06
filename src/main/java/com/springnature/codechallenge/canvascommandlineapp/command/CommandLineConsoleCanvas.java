@@ -4,8 +4,8 @@ package com.springnature.codechallenge.canvascommandlineapp.command;
 
 import com.springnature.codechallenge.canvascommandlineapp.canvas.Canvas;
 import com.springnature.codechallenge.canvascommandlineapp.canvasimpl.CanvasImpl;
-import com.springnature.codechallenge.canvascommandlineapp.commandimpl.CreateCanvasImpl;
-import com.springnature.codechallenge.canvascommandlineapp.commandimpl.QuiteCanvasImpl;
+import com.springnature.codechallenge.canvascommandlineapp.commandimpl.CreateCanvasCommandImpl;
+import com.springnature.codechallenge.canvascommandlineapp.commandimpl.QuiteCanvasCommandImpl;
 import com.springnature.codechallenge.canvascommandlineapp.constant.Constants;
 import com.springnature.codechallenge.canvascommandlineapp.constant.ErrorCodes;
 import com.springnature.codechallenge.canvascommandlineapp.exception.CanvasCommandLineAppException;
@@ -30,12 +30,12 @@ public class CommandLineConsoleCanvas {
             commandLine = scanIn.nextLine();
             try {
                 command = CanvasCommandFactory.create(commandLine);
-                if (!(command instanceof QuiteCanvasImpl))
+                if (!(command instanceof QuiteCanvasCommandImpl))
                 {
-                    if (canvas == null && !(command instanceof CreateCanvasImpl))
+                    if (canvas == null && !(command instanceof CreateCanvasCommandImpl))
                         throw new CanvasCommandLineAppException(ErrorCodes.THERE_IS_NO_CANVAS);
-                    else if (command instanceof CreateCanvasImpl)
-                        canvas = new CanvasImpl((CreateCanvasImpl) command);
+                    else if (command instanceof CreateCanvasCommandImpl)
+                        canvas = new CanvasImpl((CreateCanvasCommandImpl) command);
                     else
                         canvas.addCommandToConvasCommandList(command);
                 }

@@ -2,7 +2,7 @@ package com.springnature.codechallenge.canvascommandlineapp.test;
 
 import com.springnature.codechallenge.canvascommandlineapp.canvas.Canvas;
 import com.springnature.codechallenge.canvascommandlineapp.canvasimpl.CanvasImpl;
-import com.springnature.codechallenge.canvascommandlineapp.commandimpl.CreateCanvasImpl;
+import com.springnature.codechallenge.canvascommandlineapp.commandimpl.CreateCanvasCommandImpl;
 import com.springnature.codechallenge.canvascommandlineapp.constant.Constants;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,7 +15,7 @@ public class CanvasCreationTest {
     @Before
     public void setUp() throws Exception {
         String[] commandLineArguments = {"20", "4"};
-        CreateCanvasImpl createCanvasCommand = new CreateCanvasImpl(commandLineArguments);
+        CreateCanvasCommandImpl createCanvasCommand = new CreateCanvasCommandImpl(commandLineArguments);
         canvas = new CanvasImpl(createCanvasCommand);
     }
 

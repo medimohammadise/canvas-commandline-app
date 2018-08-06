@@ -2,7 +2,7 @@ package com.springnature.codechallenge.canvascommandlineapp.canvasimpl;
 
 import com.springnature.codechallenge.canvascommandlineapp.canvas.Canvas;
 import com.springnature.codechallenge.canvascommandlineapp.command.Command;
-import com.springnature.codechallenge.canvascommandlineapp.commandimpl.CreateCanvasImpl;
+import com.springnature.codechallenge.canvascommandlineapp.commandimpl.CreateCanvasCommandImpl;
 import com.springnature.codechallenge.canvascommandlineapp.constant.Constants;
 
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ public class CanvasImpl implements Canvas {
 
     private int height;
 
-    public CanvasImpl(CreateCanvasImpl createConvas){
+    public CanvasImpl(CreateCanvasCommandImpl createConvas){
         this.width=createConvas.getWidth();
         this.height=createConvas.getHeight();
         this.initElements();
@@ -71,7 +71,7 @@ public class CanvasImpl implements Canvas {
     public void addCommandToConvasCommandList(Command command) {
         commandList.add(command);
         //new command is just affecting in canvas by draw method we do not know what is that affect? (separation of concerns)
-        command.draw();
+        command.draw(this);
         //the canvas just blindly rendering it'sstate
         this.display();
     }
@@ -83,7 +83,8 @@ public class CanvasImpl implements Canvas {
 
     @Override
     public void setElement(int x, int y, char c) {
-        elements[x][y]=c;
+        if (x>=0&&x<=width && y>=0&&y<=height)
+            elements[x][y]=c;
     }
 
     @Override

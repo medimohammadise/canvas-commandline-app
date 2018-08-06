@@ -13,4 +13,5 @@ public class Constants {
     public static final char CHAR_DASH='-';
     public static final char CHAR_PIP='|';
     public static final char CHAR_SPACE=' ';
+    public static final char CHAR_X='X';
 }
