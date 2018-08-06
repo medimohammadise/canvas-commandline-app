@@ -10,7 +10,7 @@ public interface Canvas {
     int getWidth();
     int getHeight();
     void display();
-    void addCommandToConvasCommandList(Command command);
+    void addCommandToCanvasCommandList(Command command);
     List<Command> getCommandList();
     void setElement(int x, int y, char c);
     Character getElement(int x, int y);

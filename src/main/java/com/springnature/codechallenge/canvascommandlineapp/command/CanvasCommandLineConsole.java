@@ -37,7 +37,7 @@ public class CanvasCommandLineConsole {
                     else if (command instanceof CreateCanvasCommandImpl)
                         canvas = new CanvasImpl((CreateCanvasCommandImpl) command);
                     else
-                        canvas.addCommandToConvasCommandList(command);
+                        canvas.addCommandToCanvasCommandList(command);
                 }
             } catch (CanvasCommandLineAppException exception) {
 

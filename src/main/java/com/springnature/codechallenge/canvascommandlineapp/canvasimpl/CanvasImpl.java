@@ -32,7 +32,7 @@ public class CanvasImpl implements Canvas {
         this.width=createConvas.getWidth()+2;     //I'm intentionally doing this (Plus2) because of display requirement for canvas width (top and bottom border) for simplifying canvas display
         this.height=createConvas.getHeight()+2;  //I'm intentionally doing this (Plus2) because of display requirement for canvas height (left and right border) for simplifying canvas display
         this.initElements();
-        this.addCommandToConvasCommandList(createConvas);
+        this.addCommandToCanvasCommandList(createConvas);
 
     }
 
@@ -69,7 +69,7 @@ public class CanvasImpl implements Canvas {
     }
 
     @Override
-    public void addCommandToConvasCommandList(Command command) {
+    public void addCommandToCanvasCommandList(Command command) {
         commandList.add(command);
         //new command is just affecting in canvas by draw method we do not know what is that affect? (separation of concerns)
         command.draw(this);
