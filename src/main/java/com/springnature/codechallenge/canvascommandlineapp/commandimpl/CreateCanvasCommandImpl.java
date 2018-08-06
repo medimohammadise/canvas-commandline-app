@@ -12,7 +12,7 @@ public class CreateCanvasCommandImpl extends CanvasCommandImpl {
 
     public CreateCanvasCommandImpl(String[] commandArguments) throws CanvasCommandLineAppException {
         //pass command name to supper class
-        super(Constants.COMMAND_CREATE_NEW_CONVAS);
+        super(Constants.COMMAND_CREATE_NEW_CANVAS);
 
         //for this command 2 argument is required
         if (commandArguments.length!=2)

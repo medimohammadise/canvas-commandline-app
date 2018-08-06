@@ -26,7 +26,7 @@ public class CommandLineConsoleCanvas {
         // Start reading for drawing commands until quit command
         do {
             Command command = null;
-            System.out.print(Constants.PRMPOT_COMMAND);
+            System.out.print(Constants.PROMPT_COMMAND);
             commandLine = scanIn.nextLine();
             try {
                 command = CanvasCommandFactory.create(commandLine);

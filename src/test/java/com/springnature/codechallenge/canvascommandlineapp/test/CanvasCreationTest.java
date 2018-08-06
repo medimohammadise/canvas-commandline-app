@@ -25,7 +25,7 @@ public class CanvasCreationTest {
         assertEquals(20, canvas.getWidth());
         assertEquals(4, canvas.getHeight());
         assertEquals(1, canvas.getCommandList().size());
-        assertEquals(Constants.COMMAND_CREATE_NEW_CONVAS, canvas.getCommandList().get(0).getName());
+        assertEquals(Constants.COMMAND_CREATE_NEW_CANVAS, canvas.getCommandList().get(0).getName());
     }
 
 }

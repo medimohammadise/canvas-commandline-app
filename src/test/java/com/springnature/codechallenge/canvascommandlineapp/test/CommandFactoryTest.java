@@ -34,4 +34,24 @@ public class CommandFactoryTest {
         String commandLine = "T 2 3";
         CanvasCommandFactory.create(commandLine);
     }
+
+    @Test
+    public void createShouldCreateRectangleCommand() throws CanvasCommandLineAppException {
+        String commandLine = "R 10 1 15 3";
+        Command command = CanvasCommandFactory.create(commandLine);
+        assertEquals(Constants.COMMAND_DRAW_NEW_RECTANGLE, command.getName());
+    }
+
+    @Test(expected =CanvasCommandLineAppException.class)
+    public void createRectangleCommandShouldThrowNoEnoughArgumentMessageException() throws CanvasCommandLineAppException {
+        String commandLine = "R 10 1";
+        CanvasCommandFactory.create(commandLine);
+    }
+
+    @Test(expected =CanvasCommandLineAppException.class)
+    public void createRectangleCommandShouldThrowInvalidArgumentMessageException() throws CanvasCommandLineAppException {
+        String commandLine = "R 10 1 a b";
+        CanvasCommandFactory.create(commandLine);
+    }
+
 }

@@ -2,19 +2,20 @@ package com.springnature.codechallenge.canvascommandlineapp.commandimpl;
 
 import com.springnature.codechallenge.canvascommandlineapp.canvas.Canvas;
 import com.springnature.codechallenge.canvascommandlineapp.canvasimpl.Line;
+import com.springnature.codechallenge.canvascommandlineapp.canvasimpl.Rectangle;
 import com.springnature.codechallenge.canvascommandlineapp.constant.Constants;
 import com.springnature.codechallenge.canvascommandlineapp.constant.ErrorCodes;
 import com.springnature.codechallenge.canvascommandlineapp.exception.CanvasCommandLineAppException;
 
 /*
-   This class validates and create command after Draw Line (L) command
+   This class validates and create command after Draw Rectangle (R) command
  */
-public class DrawLineCommandImpl extends CanvasCommandImpl {
-    Line line;
+public class DrawRectangleCommandImpl extends CanvasCommandImpl {
+    Rectangle rectangle;
 
-    public DrawLineCommandImpl(String[] commandArguments) throws CanvasCommandLineAppException {
+    public DrawRectangleCommandImpl(String[] commandArguments) throws CanvasCommandLineAppException {
         //pass command name to supper class
-        super(Constants.COMMAND_DRAW_NEW_LINE);
+        super(Constants.COMMAND_DRAW_NEW_RECTANGLE);
         int x1,y1,x2,y2;
 
         //for this command 2 argument is required
@@ -33,11 +34,11 @@ public class DrawLineCommandImpl extends CanvasCommandImpl {
         {
             throw new CanvasCommandLineAppException(ErrorCodes.ARGUMENTS_VALUE_IS_NOT_VALID);
         }
-        line=new Line(x1,y1,x2,y2,Constants.CHAR_X);
+        rectangle=new Rectangle(x1,y1,x2,y2,Constants.CHAR_X);
     }
     @Override
     public void draw(Canvas canvas) {
-        this.line.draw(canvas);
+        this.rectangle.draw(canvas);
     }
 
 
