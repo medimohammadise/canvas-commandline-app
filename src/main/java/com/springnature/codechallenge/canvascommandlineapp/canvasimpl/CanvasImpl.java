@@ -29,25 +29,26 @@ public class CanvasImpl implements Canvas {
     private int height;
 
     public CanvasImpl(CreateCanvasCommandImpl createConvas){
-        this.width=createConvas.getWidth();
-        this.height=createConvas.getHeight();
+        this.width=createConvas.getWidth()+2;     //I'm intentionally doing this (Plus2) because of display requirement for canvas width (top and bottom border) for simplifying canvas display
+        this.height=createConvas.getHeight()+2;  //I'm intentionally doing this (Plus2) because of display requirement for canvas height (left and right border) for simplifying canvas display
         this.initElements();
         this.addCommandToConvasCommandList(createConvas);
 
     }
 
     private void initElements() {
-        elements= new char[width+1][height+1];
-        for (int x = 0; x <= width; x++) {
-            for (int y = 0; y <= height; y++) {
+        elements= new char[width][height];
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
                 //set  canvas borders
-                if (y==0 || y==height )
+                if (y==0 || y==height-1 )
                     elements[x][y] = Constants.CHAR_DASH;
                 else
-                if( x==0 || x==width )
+                if( x==0 || x==width-1 )
                     elements[x][y] = Constants.CHAR_PIP;
                 else
                 elements[x][y] = Constants.CHAR_SPACE;
+
             }
         }
     }
@@ -59,8 +60,8 @@ public class CanvasImpl implements Canvas {
 
     @Override
     public void display() {
-        for (int y = 0; y <= height ; y++) {
-            for (int x = 0; x <=width ; x++) {
+        for (int y = 0; y < height ; y++) {
+            for (int x = 0; x <width ; x++) {
                 System.out.print(getElement(x, y));
             }
             printNewLine();
@@ -83,7 +84,7 @@ public class CanvasImpl implements Canvas {
 
     @Override
     public void setElement(int x, int y, char c) {
-        if (x>=0&&x<=width && y>=0&&y<=height)
+        if (x>=0&&x<width && y>=0&&y<height)
             elements[x][y]=c;
     }
 

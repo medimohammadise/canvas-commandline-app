@@ -1,9 +1,6 @@
 package com.springnature.codechallenge.canvascommandlineapp.command;
 
-import com.springnature.codechallenge.canvascommandlineapp.commandimpl.CreateCanvasCommandImpl;
-import com.springnature.codechallenge.canvascommandlineapp.commandimpl.DrawLineCommandImpl;
-import com.springnature.codechallenge.canvascommandlineapp.commandimpl.DrawRectangleCommandImpl;
-import com.springnature.codechallenge.canvascommandlineapp.commandimpl.QuiteCanvasCommandImpl;
+import com.springnature.codechallenge.canvascommandlineapp.commandimpl.*;
 import com.springnature.codechallenge.canvascommandlineapp.constant.Constants;
 import com.springnature.codechallenge.canvascommandlineapp.constant.ErrorCodes;
 import com.springnature.codechallenge.canvascommandlineapp.exception.CanvasCommandLineAppException;
@@ -31,7 +28,7 @@ public class CanvasCommandFactory {
             case Constants.COMMAND_DRAW_NEW_RECTANGLE:
                 return new DrawRectangleCommandImpl(commandArguments);
             case Constants.COMMAND_BUCKET_FILL:
-                //TODO backet fill
+                return new BucketFillCommandImpl(commandArguments);
             case Constants.COMMAND_QUIT:
                 return new QuiteCanvasCommandImpl();
         }

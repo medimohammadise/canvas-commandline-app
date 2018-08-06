@@ -13,10 +13,10 @@ import com.springnature.codechallenge.canvascommandlineapp.exception.CanvasComma
 import java.util.Scanner;
 
 /**
- * CommandLineConsoleCanvas handle the reading of command lines in the console.
+ * CanvasCommandLineConsole handle the reading of command lines in the console.
  * It verifies command and also  keep listening for commands until the command "Q" is entered.
  */
-public class CommandLineConsoleCanvas {
+public class CanvasCommandLineConsole {
 
 
     public void run() {
