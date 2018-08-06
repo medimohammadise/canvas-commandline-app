@@ -38,7 +38,6 @@ public class BucketFillCommandImpl extends CanvasCommandImpl {
         doFillBucketWithColor(canvas,x,y,color);
     }
     public void doFillBucketWithColor(Canvas canvas, int x, int y, char color) {
-        canvas.display();
         if (Constants.CHAR_X==canvas.getElement(x, y) || canvas.getElement(x, y).equals(color) || canvas.getElement(x, y)==Constants.CHAR_PIP|| canvas.getElement(x, y)==Constants.CHAR_DASH) {
             return;
         }
