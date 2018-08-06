@@ -1,11 +1,9 @@
 package com.springnature.codechallenge.canvascommandlineapp.commandimpl;
 
 import com.springnature.codechallenge.canvascommandlineapp.canvas.Canvas;
-import com.springnature.codechallenge.canvascommandlineapp.canvasimpl.Rectangle;
 import com.springnature.codechallenge.canvascommandlineapp.constant.Constants;
 import com.springnature.codechallenge.canvascommandlineapp.constant.ErrorCodes;
 import com.springnature.codechallenge.canvascommandlineapp.exception.CanvasCommandLineAppException;
-import com.sun.tools.internal.jxc.ap.Const;
 
 /*
    This class validates and create command after Draw Rectangle (R) command

@@ -22,8 +22,8 @@ public class CanvasCreationTest {
     @Test
     public void newCanvasShouldCreateAreaWithRightWidthAndHeightAndHasOneCommand() {
 
-        assertEquals(20, canvas.getWidth());
-        assertEquals(4, canvas.getHeight());
+        assertEquals(22, canvas.getWidth()); // we intentionally adding 2 for width and height so we expect 22
+        assertEquals(6, canvas.getHeight()); // we intentionally adding 2 for width and height so we expect 6
         assertEquals(1, canvas.getCommandList().size());
         assertEquals(Constants.COMMAND_CREATE_NEW_CANVAS, canvas.getCommandList().get(0).getName());
     }
