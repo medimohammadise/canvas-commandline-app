@@ -38,6 +38,7 @@ public class BucketFillCommandImpl extends CanvasCommandImpl {
         doFillBucketWithColor(canvas,x,y,color);
     }
     public void doFillBucketWithColor(Canvas canvas, int x, int y, char color) {
+        //when painter facing this elements should stop painting:
         if (Constants.CHAR_X==canvas.getElement(x, y) || canvas.getElement(x, y).equals(color) || canvas.getElement(x, y)==Constants.CHAR_PIP|| canvas.getElement(x, y)==Constants.CHAR_DASH) {
             return;
         }
@@ -45,7 +46,7 @@ public class BucketFillCommandImpl extends CanvasCommandImpl {
             if (canvas.getElement(x, y)== Constants.CHAR_SPACE) {
                 canvas.setElement(x, y, color);
             }
-            //fill adjucent canvas elements also
+            //fill all adjucent elements in canvas
             doFillBucketWithColor(canvas, x-1, y, color);
             doFillBucketWithColor(canvas, x + 1, y, color);
             doFillBucketWithColor(canvas,  x, y-1,color);

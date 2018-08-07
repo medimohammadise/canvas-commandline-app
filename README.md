@@ -28,17 +28,16 @@ There is no specific library dependency I just used Java8 and Junit for the deve
 
 You need to do following steps for runing the project via command line :
 
-1. after cloning got to app directory and run ./mvnw install. this command will generate jar file after all test cases passed.
-2. cd target  (go to target folder)
+1. after cloning go to the app directory and run ./mvnw install. This command will generate jar file after all test cases passed.
+2. cd target  (go to target folder).
 3. run this command java -jar CoavasCommandLineApp-1.0-SNAPSHOT.jar and there we go!
 
 
  
-## Sample I/O
+## Commands
 
-**Application is case sensitive and all Command letters should be UpperCase !**
+**Application is case sensitive and all command letters should be upperCase !**
 
-The program should support the following commands:
    
 | Command | Description |
 | ------- | ----------- |
