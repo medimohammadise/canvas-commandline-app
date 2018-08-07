@@ -39,13 +39,14 @@ public class BucketFillCommandImpl extends CanvasCommandImpl {
     }
     public void doFillBucketWithColor(Canvas canvas, int x, int y, char color) {
         //when painter facing this elements should stop painting:
-        if (Constants.CHAR_X==canvas.getElement(x, y) || canvas.getElement(x, y).equals(color) || canvas.getElement(x, y)==Constants.CHAR_PIP|| canvas.getElement(x, y)==Constants.CHAR_DASH) {
+        if (Constants.CHAR_X==canvas.getElement(x, y) ||canvas.getElement(x, y).equals(color)|| canvas.getElement(x, y)==Constants.CHAR_PIP|| canvas.getElement(x, y)==Constants.CHAR_DASH) {
             return;
         }
+
         if (x >= 1 && x < canvas.getWidth()  && y >= 1 && y < canvas.getHeight()) {
-            if (canvas.getElement(x, y)== Constants.CHAR_SPACE) {
+            //maybe we already have n't filled the bucket or we filled that but by different color (yes! I'm supporting that)
+            if (canvas.getElement(x, y)== Constants.CHAR_SPACE || (Constants.CHAR_SPACE!=canvas.getElement(x, y) && !canvas.getElement(x, y).equals(color)))
                 canvas.setElement(x, y, color);
-            }
             //fill all adjucent elements in canvas
             doFillBucketWithColor(canvas, x-1, y, color);
             doFillBucketWithColor(canvas, x + 1, y, color);

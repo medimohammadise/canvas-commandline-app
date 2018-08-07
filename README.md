@@ -21,14 +21,14 @@ There is no specific library dependency I just used Java8 and Junit for the deve
     Command conceret classes :CreateCanvasCommandImpl,DrawLineCommandImpl,DrawRectangleCommandImpl,BucketFillCommandImpl,
     QuiteCanvasCommandImpl class names are self-explatory
     Canvas concrete classes : CanvasImpl
-    Shape concrete classes : Shape and Line
+    Shape concrete classes : ٍRectangle and Line
     CanvasCommandFactory   : for processing command line and creating related comand class
     
 ## How to run
 
 You need to do following steps for runing the project via command line :
 
-1. after cloning go to the app directory and run ./mvnw install. This command will generate jar file after all test cases passed.
+1. after cloning go to the app directory and run ./mvnw install (Mac or Linux) or mvnw install (windows). This command will generate jar file after all test cases passed.
 2. cd target  (go to target folder).
 3. run this command java -jar CoavasCommandLineApp-1.0-SNAPSHOT.jar and there we go!
 
